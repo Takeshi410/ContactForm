@@ -19,10 +19,9 @@ use App\Http\Controllers\ModalController;
 Route::get('/', [ContactsController::class, 'index']);
 Route::post('/confirm', [ContactsController::class, 'confirm']);
 Route::post('/thanks', [ContactsController::class, 'store']);
-
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'admin']);
 });
 Route::get('/admin/search', [AdminController::class, 'search']);
 Route::get('/reset', [AdminController::class, 'reset']);
-
+Route::delete('/delete', [AdminController::class, 'destroy']);

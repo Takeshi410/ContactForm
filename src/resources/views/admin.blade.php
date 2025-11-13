@@ -21,6 +21,7 @@
     </div>
 
     <form action="/admin/search">
+    @csrf
     <div class="search-form__item">
         <input type="text" class="search-form__item--keyword" name="keyword" value="{{ request('keyword') }}" placeholder="名前やメールアドレスを入力してください">
 
@@ -103,6 +104,12 @@
                             <p><strong>建物名　</strong>{{ $contact['build'] }}</p>
                             <p><strong>お問い合わせの種類　</strong>{{ $contact['category']['content'] }}</p>
                             <p><strong>お問い合わせ内容　</strong>{{ $contact['detail'] }}</p>
+                            <form action="/delete" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $contact['id'] }}">
+                            <button>削除</button>
+                            </form>
                         </div>
                     </div>
                 </div>
