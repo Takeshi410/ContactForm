@@ -24,4 +24,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'admin']);
 });
 Route::get('/admin/search', [AdminController::class, 'search']);
+Route::get('/reset', [AdminController::class, 'reset']);
 

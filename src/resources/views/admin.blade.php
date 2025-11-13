@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
@@ -39,7 +40,7 @@
 
         <input type="date" name="date" class="search-form__item--date" value="{{ request('date') }}" >
 
-        <button>検索</button>
+        <button class="search-form__search-button">検索</button>
     </form>
     <form action="/reset">
         <button class="search-form__reset">リセット</button>
@@ -74,8 +75,41 @@
                     ?></td>
             <td class="admin-table__email"><input type="text" Value="{{ $contact['email'] }}" readonly></td>
             <td class="admin-table__category"><input type="text" Value="{{ $contact['category']['content'] }}" readonly></td>
-            <td><button>詳細</button></td>
+            <td><button class="btn btn-info btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#detailModal{{ $contact['id'] }}">詳細</button></td>
         </tr>
+
+        <!-- モーダルウィンドウ -->
+            <div class="modal fade" id="detailModal{{ $contact['id'] }}" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>お名前　</strong>{{ $contact['last_name'] . '　' . $contact['first_name'] }}</p>
+                            <p><strong>性別　</strong>
+                            <?php
+                                if ($contact['gender'] == '1') {
+                                    echo '男性';
+                                } elseif ($contact['gender'] == '2') {
+                                    echo '女性';
+                                } else {
+                                    echo 'その他';
+                                }
+                            ?></p>
+                            <p><strong>メールアドレス　</strong>{{ $contact['last_name'] . '　' . $contact['first_name'] }}</p>
+                            <p><strong>電話番号　</strong>{{ $contact['tel'] }}</p>
+                            <p><strong>住所　</strong>{{ $contact['address'] }}</p>
+                            <p><strong>建物名　</strong>{{ $contact['build'] }}</p>
+                            <p><strong>お問い合わせの種類　</strong>{{ $contact['category']['content'] }}</p>
+                            <p><strong>お問い合わせ内容　</strong>{{ $contact['detail'] }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endforeach
     </table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

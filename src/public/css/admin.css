@@ -26,7 +26,7 @@ h3 {
 }
 
 .admin__content {
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 30px 15;
     max-width: 1230px;
     min-width: 700px;
@@ -35,35 +35,58 @@ h3 {
 .search-form__item {
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 20px auto;
     margin-bottom: 15px;
     width: 80%;
     height: 40px;
     text-align: center;
+    font-size: 14px;
+}
+
+.search-form__item--keyword {
+    width: 32%;
+    padding: 0 1%;
+    border: solid 1px #E3DED9;
+    background: #F4F4F4;
+    color: #8B7969;
+}
+
+.search-form__item--gender {
+    width: 10%;
+    padding: 0 1%;
+    border: solid 1px #E3DED9;
+    background: #F4F4F4;
+    color: #8B7969;
+}
+
+.search-form__item--category {
+    width: 20%;
+    padding: 0 1%;
+    border: solid 1px #E3DED9;
+    background: #F4F4F4;
+    color: #8B7969;
+}
+
+.search-form__item--date {
+    width: 14%;
+    padding: 0 1%;
+    border: solid 1px #E3DED9;
+    background: #F4F4F4;
+    color: #8B7969;
+}
+
+.search-form__search-button {
+    width: 8%;
+    background: #82756A;
+    border: solid 1px #8B7969;
+    color: #FFF;
 }
 
 .search-form__reset {
     height: 40px;
-}
-
-.search-form__item--keyword {
-    width: 28%;
-    padding: 0 1%;
-}
-
-.search-form__item--gender {
-    width: 8%;
-    padding: 0 1%;
-}
-
-.search-form__item--category {
-    width: 18%;
-    padding: 0 1%;
-}
-
-.search-form__item--date {
-    width: 18%;
-    padding: 0 1%;
+    background: #D9C6B5;
+    color: #FFF;
+    border: solid 1px #D9C6B5;
 }
 
 .admin__pagination {
@@ -78,15 +101,15 @@ h3 {
     margin: 0;
 }
 
-.admin__pagination li {
-    width: 30px;
-    border: 1px solid #D9C6B5;
-    text-align: center;
-    display: inline-block;
+.pagination .page-item .page-link {
+    background-color: #FFF;
+    border: solid 1px #E0DFDE;
+    color: #8B7969;
 }
 
-.admin__pagination span {
-    text-decoration: none;
+.pagination .page-item .page-link:hover {
+    background-color: #8B7969;
+    color: #FFF;
 }
 
 .admin-table {
@@ -144,4 +167,18 @@ h3 {
 
 .admin-table__row input {
     width: 100%;
+}
+
+.btn-custom {
+    background: #F4F4F44D;
+    border: solid 1px #D9C6B599;
+    color: #D9C6B5;
+}
+
+.btn-custom:hover,
+.btn-custom:active,
+.btn-custom:focus {
+    background: #F4F4F44D !important;
+    border: solid 1px #D9C6B599 !important;
+    color: #D9C6B5 !important;
 }
