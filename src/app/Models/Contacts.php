@@ -30,8 +30,7 @@ class Contacts extends Model
         if (!empty($keyword)) {
             $query->where('last_name', 'like', '%' . $keyword . '%')
                 ->orWhere('first_name', 'like', '%' . $keyword . '%')
-                ->orWhere('email', 'like', '%' . $keyword . '%')
-                ->orWhere('detail', 'like', '%' . $keyword . '%');
+                ->orWhere('email', 'like', '%' . $keyword . '%');
         }
         return $query;
     }
